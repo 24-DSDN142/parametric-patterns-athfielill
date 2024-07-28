@@ -1,12 +1,12 @@
 # How to use the parametric wallpaper code 
-This document contains everything you need to work with the wallpaper framework. All of the functions mentioned here can be found in [my_wallpaper.js]
+This documeDEVELOP_GLYPHnt contains everything you need to work with the wallpaper framework. All of the functions mentioned here can be found in [my_wallpaper.js]
 
  In the setup_wallpaper function you will find a few functions that can take various parameters this file lists the options for each.
 
 ## pWallpaper.output_mode(....);
 the .... can be replaced with:
 
-   1. DEVELOP_GLYPH
+   1. 
       develop glyph is for prototyping your glyph by its self. it only shows one copy
       and the bounding box of the tile. everything is scaled up so you can see it easier.
 
