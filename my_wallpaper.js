@@ -1,6 +1,9 @@
-//your parameter variables go here!
-// let rect_width = 20;
-// let rect_height = 20;
+let seedX = 3
+let seedY = 6
+let RedTriangleX = 20
+let RedTriangleY = 70
+let LemonArc = 150
+//let LemonColour = color(255, 255, 40)
 
 
 function setup_wallpaper(pWallpaper) {
@@ -24,13 +27,11 @@ function wallpaper_background() {
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   angleMode(RADIANS)
-  var fruit = 1
+  var fruit = 2
   if (fruit == 1) {
-    DrawLemonSlice(100, 20);
+    DrawLemonSlice(100, 30);
   } else if (fruit == 2) {
     DrawWatermelon();
-  } else if (fruit == 3) {
-    DrawFullLemon(10, 10);
   }
 
 
@@ -38,116 +39,99 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
 
 
 
-
-
-function DrawFullLemon(arc1x, arc1y) {
-
-
-  strokeWeight(0);
-  fill(255, 173, 20);//dark yellow
-  arc(arc1x, arc1y, 100, 200, 20, PI);//outer semi circle
-
-  stroke(255, 255, 255);
-  strokeWeight(2);
-  fill(255, 227, 89);//lighter yellow
-  ellipse(arc1x, arc1y, 90, 80);
-
-  line(arc1x, arc1y, arc1x, arc1y + 45);
-
-  line(arc1x, arc1y, arc1x - 31, arc1y + 32);
-  line(arc1x, arc1y, arc1x + 31, arc1y + 31);
-  line(arc1x - 45, arc1y, arc1x + 45, arc1y);
-
-}
-
 function DrawLemonSlice(arc1x, arc1y) {
+  let LemonColour = color(255, 140, 0)//orange colour
+
+  fill(93, 186, 95); //green
+  stroke(255); //white
+  ellipse(20, 15, 25); //green circle
+  ellipse(20, 40, 25); //green circle
+  ellipse(20, 65, 25); //green circle
+  ellipse(20, 90, 25); //green circle
+
+  stroke(212, 245, 255)
+  fill(212, 245, 255)//blue
+  rect(20, 2, 15, 24)//blue rectanhgle covering top circle
+  rect(4, 27, 15, 24)
+  rect(20, 53, 15, 24)
+  rect(4, 78, 15, 24)
 
 
-
-  strokeWeight(0);
+  //
+  strokeWeight(0); //no stroke
   fill(255, 173, 20);//dark yellow
-  arc(arc1x, arc1y, 100, 100, 0, PI);//outer semi circle
+  arc(arc1x, arc1y, 100, 100, LemonArc, PI);//outer semi circle
 
-  stroke(255, 255, 255);
-  strokeWeight(2);
-  fill(255, 227, 89);//lighter yellow
-  arc(arc1x, arc1y, 90, 90, 0, PI);//inner semi circle
+  stroke(255); // white
+  strokeWeight(2); // set strokeweight to 2
+  fill(LemonColour);//lighter yellow
+  arc(arc1x, arc1y, 90, 90, LemonArc, PI);//inner semi circle
 
-  line(arc1x, arc1y, arc1x, arc1y + 45);
-
-  line(arc1x, arc1y, arc1x - 31, arc1y + 32);
-  line(arc1x, arc1y, arc1x + 31, arc1y + 31);
-  line(arc1x - 45, arc1y, arc1x + 45, arc1y);
+  line(arc1x, arc1y, arc1x, arc1y + 45); //white line segment
+  line(arc1x, arc1y, arc1x - 31, arc1y + 32); //white line segment
+  line(arc1x, arc1y, arc1x + 31, arc1y + 31); //white line segment
+  line(arc1x - 45, arc1y, arc1x + 45, arc1y); //white line segment
 
 }
+
 
 
 function DrawWatermelon() {
 
-  let seedX = 3
-  let seedY = 4
-
   //watermelon 1
-
   stroke(235, 70, 89)// stroke red
   fill(235, 70, 89)// red
-  triangle(20, 75, 60, 20, 95, 75); // red triangle
-
+  triangle(RedTriangleX, RedTriangleY + 5, 60, 20, 95, 75); // red triangle
 
   stroke(34, 143, 63)
   fill(34, 143, 63); //green
-  ellipse(57, 80, 81, 15) // green rind ellipse
-
+  ellipse(RedTriangleX + 37, RedTriangleY + 10, 81, 15) // green rind ellipse
 
   stroke(255)
   fill(255); //white
-  ellipse(57, 77, 80, 12) // white rind ellipse
-
+  ellipse(RedTriangleX + 37, RedTriangleY + 7, 80, 12) // white rind ellipse
 
   stroke(235, 70, 89)
   fill(235, 70, 89); //red
-  ellipse(58, 74, 74, 10) // red rind ellipse
+  ellipse(RedTriangleX + 38, RedTriangleY + 4, 74, 10) // red rind ellipse
 
   stroke(5)
   fill(5); //black
-  ellipse(60, 35, seedX, seedY) // black seed
-  ellipse(47, 45, seedX, seedY) // black seed
-  ellipse(70, 50, seedX, seedY) // black seed
-  ellipse(52, 60, seedX, seedY) // black seed
-  ellipse(35, 67, seedX, seedY) // black seed
-  ellipse(79, 70, seedX, seedY) // black seed
-  ellipse(60, 75, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 40, RedTriangleY - 35, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 37, RedTriangleY - 25, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 50, RedTriangleY - 20, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 32, RedTriangleY - 10, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 15, RedTriangleY - 3, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 59, RedTriangleY, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 40, RedTriangleY + 5, seedX, seedY) // black seed
+
 
   // watermelon 2
-
   stroke(235, 70, 89)
   fill(235, 70, 89)// red
-  triangle(190, 20, 110, 20, 150, 75); // red triangle 2
-
+  triangle(RedTriangleX + 170, RedTriangleY - 50, 110, 20, 150, 75); // red triangle 2
 
   stroke(34, 143, 63)
   fill(34, 143, 63); //green
-  ellipse(150, 20, 81, 15) // green rind ellipse
-
+  ellipse(RedTriangleX + 130, RedTriangleY - 50, 81, 15) // green rind ellipse
 
   stroke(255)
   fill(255); //white
-  ellipse(150, 23, 78, 12) // white rind ellipse
-
+  ellipse(RedTriangleX + 130, RedTriangleY - 47, 78, 12) // white rind ellipse
 
   stroke(235, 70, 89)
   fill(235, 70, 89); //red
-  ellipse(150, 25, 73, 10) // red rind ellipse
+  ellipse(RedTriangleX + 130, RedTriangleY - 45, 73, 10) // red rind ellipse
 
   stroke(5)
   fill(5); //black
-  ellipse(160, 31, seedX, seedY) // black seed
-  ellipse(127, 28, seedX, seedY) // black seed
-  ellipse(160, 50, seedX, seedY) // black seed
-  ellipse(142, 33, seedX, seedY) // black seed
-  ellipse(140, 51, seedX, seedY) // black seed
-  ellipse(179, 28, seedX, seedY) // black seed
-  ellipse(150, 67, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 140, RedTriangleY - 39, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 107, RedTriangleY - 42, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 140, RedTriangleY - 20, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 122, RedTriangleY - 37, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 120, RedTriangleY - 19, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 159, RedTriangleY - 42, seedX, seedY) // black seed
+  ellipse(RedTriangleX + 130, RedTriangleY - 3, seedX, seedY) // black seed
 
 
 
