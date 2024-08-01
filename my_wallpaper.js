@@ -1,24 +1,24 @@
 //parameters
-let seedX = 2 //changes the width of the watermelon seed
+let seedX = 4 //changes the width of the watermelon seed
 let seedY = 5 // chnages the height of the watermelon seeds
 let TX = 20 //changes the x coordinate of the watermelon
 let TY = 70 // changes the y coordinate of the watermelon
-let LemonArc = 200 //changes the arc of the lemon
-let BackgroundStrokeWeight = 1 //strokeweight of the blue background lines
-let fruit = 1 // changes whether watermelon or citrus fruit shows
-let CellWidth = 200
-let CellHeigth = 130
-// let LemonColour = color(247, 241, 119)//yellow colour
-// let CitrusVine = color(155, 196, 153)//green colour
-// let VineStrokeColour = color(245, 201, 236)//pink colour
-// let RindColour = color(232, 191, 77)//Dark yellow colour
-//let BackgroundColour = color(62, 66, 112)//colour of the background
+let LemonArc = 100 //changes the arc of the lemon
+let BackgroundStrokeWeight = 3 //strokeweight of the blue background lines
+let fruit = 2 // changes whether watermelon or citrus fruit shows
+let CellWidth = 150
+let CellHeigth = 110
+// let LemonColour = color(245, 188, 76)//orange colour
+// let CitrusVine = color(247, 198, 228)//pink colour
+// let VineStrokeColour = color(247, 198, 228)//pink colour
+// let RindColour = color(224, 146, 56)//orange colour
+//let BackgroundColour = color(176, 233, 235)//colour of the background
 // let LineStroke = color(177, 222, 151)
-// let WatermelonColour = color(235, 91, 116)
+// let WatermelonColour = color(235, 70, 89)
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(A3);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -28,7 +28,7 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  let BackgroundColour = color(62, 66, 112)
+  let BackgroundColour = color(176, 233, 235)
   background(BackgroundColour); //colour of background
 }
 
@@ -132,7 +132,7 @@ function DrawLemonSlice(arc1x, arc1y) {
 
 function DrawWatermelon(RedTriangleX, RedTriangleY) {
   let LineStroke = color(177, 222, 151)
-  let WatermelonColour = color(235, 91, 116)
+  let WatermelonColour = color(235, 70, 89)
 
   strokeWeight(BackgroundStrokeWeight)
   stroke(LineStroke) //colour of stripes
