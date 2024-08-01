@@ -1,16 +1,20 @@
 //parameters
-let seedX = 2
-let seedY = 4
-let RedTriangleX = 20
-let RedTriangleY = 70
-let LemonArc = 0
-let BackgroundStrokeWeight = 1
-let fruit = 1
-// let LemonColour = color(150, 227, 109)//green colour
-// let CitrusVine = color(88, 192, 72)//green colour
-// let VineStrokeColour = color(255)//white colour
-// let RindColour = color(42, 156, 33)//colour of the lower semi-circle
-
+let seedX = 2 //changes the width of the watermelon seed
+let seedY = 5 // chnages the height of the watermelon seeds
+let TX = 20 //changes the x coordinate of the watermelon
+let TY = 70 // changes the y coordinate of the watermelon
+let LemonArc = 200 //changes the arc of the lemon
+let BackgroundStrokeWeight = 1 //strokeweight of the blue background lines
+let fruit = 1 // changes whether watermelon or citrus fruit shows
+let CellWidth = 200
+let CellHeigth = 130
+// let LemonColour = color(247, 241, 119)//yellow colour
+// let CitrusVine = color(155, 196, 153)//green colour
+// let VineStrokeColour = color(245, 201, 236)//pink colour
+// let RindColour = color(232, 191, 77)//Dark yellow colour
+//let BackgroundColour = color(62, 66, 112)//colour of the background
+// let LineStroke = color(177, 222, 151)
+// let WatermelonColour = color(235, 91, 116)
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -18,34 +22,33 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width = 200;
-  pWallpaper.grid_settings.cell_height = 100;
+  pWallpaper.grid_settings.cell_width = CellWidth;
+  pWallpaper.grid_settings.cell_height = CellHeigth;
   pWallpaper.grid_settings.row_offset = 0;
 }
 
-
 function wallpaper_background() {
-  background(212, 245, 255); //light blue green colour
+  let BackgroundColour = color(62, 66, 112)
+  background(BackgroundColour); //colour of background
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  angleMode(RADIANS)
-
+  angleMode(RADIANS) // sets the angle mode to radians
 
   // if function controls whether the image displays lemon or watermelon (1 or 2)
   if (fruit == 1) {
     DrawLemonSlice(100, 30);
   } else if (fruit == 2) {
-    DrawWatermelon();
+    DrawWatermelon(TX, TY);
   }
 }
 
-
 function DrawLemonSlice(arc1x, arc1y) {
-  let LemonColour = color(150, 227, 109)//yellow colour
-  let CitrusVine = color(88, 192, 72)//green colour
-  let VineStrokeColour = color(255)//white colour
-  let RindColour = color(42, 156, 33)//colour of the lower semi-circle
+  let BackgroundColour = color(62, 66, 112)//colour of background
+  let LemonColour = color(247, 241, 119)//citrus fruit colour
+  let CitrusVine = color(155, 196, 153)//Colour of background pattern
+  let VineStrokeColour = color(255)// colour of background vine stroke
+  let RindColour = color(232, 191, 77)//colour of the lower semi-circle
 
   //vine 1
   fill(CitrusVine); //green vine pattern as background
@@ -56,8 +59,8 @@ function DrawLemonSlice(arc1x, arc1y) {
   ellipse(30, 90, 25); //green circle
 
   //rectangles that create the vine pattern
-  stroke(212, 245, 255)
-  fill(212, 245, 255)//blue
+  stroke(BackgroundColour)
+  fill(BackgroundColour)//blue
   rect(30, 2, 15, 24)//blue rectangle covering circle
   rect(14, 27, 15, 24)//blue rectangle covering circle
   rect(30, 53, 15, 24)//blue rectangle covering circle
@@ -72,8 +75,8 @@ function DrawLemonSlice(arc1x, arc1y) {
   ellipse(170, 90, 25); //green circle
 
   //rectangles that create the vine pattern
-  stroke(212, 245, 255)
-  fill(212, 245, 255)//blue
+  stroke(BackgroundColour)
+  fill(BackgroundColour)//blue
   rect(170, 2, 15, 24)//blue rectangle covering circle
   rect(154, 27, 15, 24)//blue rectangle covering circle
   rect(170, 53, 15, 24)//blue rectangle covering circle
@@ -88,8 +91,8 @@ function DrawLemonSlice(arc1x, arc1y) {
   ellipse(120, 90, 25); //green circle
 
   //rectangles that create the vine pattern
-  stroke(212, 245, 255)
-  fill(212, 245, 255)//blue
+  stroke(BackgroundColour)
+  fill(BackgroundColour)//blue
   rect(120, 2, 15, 24)//blue rectangle covering circle
   rect(104, 27, 15, 24)//blue rectangle covering circle
   rect(120, 53, 15, 24)//blue rectangle covering circle
@@ -104,8 +107,8 @@ function DrawLemonSlice(arc1x, arc1y) {
   ellipse(70, 90, 25); //green circle
 
   //rectangles that create the vine pattern
-  stroke(212, 245, 255)
-  fill(212, 245, 255)//blue
+  stroke(BackgroundColour)
+  fill(BackgroundColour)//blue
   rect(70, 2, 15, 24)//blue rectangle covering circle
   rect(54, 27, 15, 24)//blue rectangle covering circle
   rect(70, 53, 15, 24)//blue rectangle covering circle
@@ -125,13 +128,14 @@ function DrawLemonSlice(arc1x, arc1y) {
   line(arc1x, arc1y, arc1x - 31, arc1y + 32); //white line segment
   line(arc1x, arc1y, arc1x + 31, arc1y + 31); //white line segment
   line(arc1x - 45, arc1y, arc1x + 45, arc1y); //white line segment
-
 }
 
-function DrawWatermelon() {
+function DrawWatermelon(RedTriangleX, RedTriangleY) {
+  let LineStroke = color(177, 222, 151)
+  let WatermelonColour = color(235, 91, 116)
 
   strokeWeight(BackgroundStrokeWeight)
-  stroke(131, 230, 225) //light blue
+  stroke(LineStroke) //colour of stripes
   line(10, 0, 0, 10) //background line
   line(20, 0, 0, 20)//background line
   line(30, 0, 0, 30)//background line
@@ -163,23 +167,22 @@ function DrawWatermelon() {
   line(290, 0, 0, 290)//background line
   line(300, 0, 0, 300)//background line
 
-
   //watermelon 1
   strokeWeight(1);
-  stroke(235, 70, 89)// stroke red
-  fill(235, 70, 89)// red
+  stroke(WatermelonColour)// stroke of watermelon body
+  fill(WatermelonColour)// colour of watermelon body
   triangle(RedTriangleX, RedTriangleY + 5, 60, 20, 95, 75); // red triangle
 
-  stroke(34, 143, 63)
+  stroke(34, 143, 63) //green
   fill(34, 143, 63); //green
   ellipse(RedTriangleX + 37, RedTriangleY + 10, 81, 15) // green rind ellipse
 
-  stroke(255)
+  stroke(255) //white
   fill(255); //white
   ellipse(RedTriangleX + 37, RedTriangleY + 7, 80, 12) // white rind ellipse
 
-  stroke(235, 70, 89)
-  fill(235, 70, 89); //red
+  stroke(WatermelonColour) //red
+  fill(WatermelonColour); //red
   ellipse(RedTriangleX + 38, RedTriangleY + 4, 74, 10) // red rind ellipse
 
   stroke(5)
@@ -192,10 +195,9 @@ function DrawWatermelon() {
   ellipse(RedTriangleX + 59, RedTriangleY, seedX, seedY) // black seed
   ellipse(RedTriangleX + 40, RedTriangleY + 5, seedX, seedY) // black seed
 
-
   // watermelon 2
-  stroke(235, 70, 89)//red
-  fill(235, 70, 89)// red
+  stroke(WatermelonColour)//red
+  fill(WatermelonColour)// red
   triangle(RedTriangleX + 170, RedTriangleY - 50, 110, 20, 150, 75); // red triangle 2
 
   stroke(34, 143, 63)//green
@@ -206,8 +208,8 @@ function DrawWatermelon() {
   fill(255); //white
   ellipse(RedTriangleX + 130, RedTriangleY - 47, 78, 16) // white rind ellipse
 
-  stroke(235, 70, 89)//red
-  fill(235, 70, 89); //red
+  stroke(WatermelonColour)//red
+  fill(WatermelonColour); //red
   ellipse(RedTriangleX + 130, RedTriangleY - 45, 73, 13) // red rind ellipse
 
   stroke(5)//black
